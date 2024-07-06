@@ -84,6 +84,16 @@ hide_when_typing = true
 action = "PasteSelection"
 mouse = "Middle"
 
+[[keyboard.bindings]]
+key = "F11"
+action = "ToggleFullscreen"
+
+[[keyboard.bindings]]
+key = "Q"
+mods = "Control"
+action = "Quit"
+
+
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
