@@ -1,4 +1,4 @@
-eval "$(/home/linuxbrew/.linuxbrew/bin/oh-my-posh init zsh --config ~/.config/omp/config.omp.json)"
+eval "$(/usr/local/bin/oh-my-posh init zsh --config ~/.config/omp/config.omp.json)"
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -17,7 +17,6 @@ zinit ice wait="2" lucid
 zinit light zsh-users/zsh-syntax-highlighting
 zinit ice wait="2" lucid
 zinit light zsh-users/zsh-completions
-zinit ice wait="2" lucid
 zinit light zsh-users/zsh-autosuggestions
 zinit ice wait="2" lucid
 zinit light Aloxaf/fzf-tab
@@ -68,8 +67,8 @@ alias c='clear'
 alias cls="clear"
 alias prj="tmuxinator start"
 
-export PATH="/opt/homebrew/bin:$PATH"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# export PATH="/opt/homebrew/bin:$PATH"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Load NVM
 export NVM_DIR="$HOME/.nvm"
@@ -80,11 +79,8 @@ export NVM_DIR="$HOME/.nvm"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# bun completions
-[ -s "/home/motb/.bun/_bun" ] && source "/home/motb/.bun/_bun"
-
-# rust
-source "$HOME/.cargo/env"
+## bun completions
+# [ -s "/home/motb/.bun/_bun" ] && source "/home/motb/.bun/_bun"
 
 
 # Shell integrations
@@ -96,3 +92,8 @@ eval $(thefuck --alias)
 # export EDITOR="code"
 # export PKG_CONFIG_PATH="${HOME}/Downloads/webkitgtk-2.44.2/"
 # export MESA_LOADER_DRIVER_OVERRIDE=i965
+
+# start in tmux
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  tmux attach || exec tmux;
+fi
