@@ -1,3 +1,5 @@
 .config/nvim.lazyvim
 .config/nvim.lazy
 .config/nvim.chad
+.config/tmux/plugins
+.config/tmux/plugins
