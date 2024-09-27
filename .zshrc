@@ -73,6 +73,9 @@ alias xpaste="xsel --output --clipboard"
 alias c='clear'
 alias cls="clear"
 alias yeet="yay -Rcs"
+alias up="docker compose up -d"
+alias down="docker compose down"
+
 # export PATH="/opt/homebrew/bin:$PATH"
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
