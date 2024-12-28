@@ -15,6 +15,7 @@ return {
         headlines = true,
         illuminate = true,
         indent_blankline = { enabled = true },
+        integrations = { blink_cmp = true },
         leap = true,
         lsp_trouble = true,
         mason = true,
