@@ -72,8 +72,16 @@ alias xcopy="xsel --input --clipboard"
 alias xpaste="xsel --output --clipboard"
 alias c='clear'
 alias cls="clear"
-alias yeet="yay -Rcs"
-alias up="docker compose up -d"
+alias yeet="paru -Rcs"
+alias cp-node="rsync -av --exclude=node_modules --exclude=target --exclude=.next --exclude=.svelte-kit --exclude=mssql"
+
+up() {
+    docker compose up -d
+    if [ -f run.sh ]; then
+        ./run.sh >> /dev/null
+    fi
+}
+
 alias down="docker compose down"
 
 # export PATH="/opt/homebrew/bin:$PATH"
@@ -96,7 +104,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
 eval $(thefuck --alias)
-eval $(spt --completions zsh)
 
 # start in tmux
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
