@@ -2,3 +2,6 @@
 edit = [
 	{ run = 'nvim "$@"', block = true, for = "unix" },
 ]
+play = [
+	{ run = 'vlc "$@"', orphan = true, for = "unix" },
+]
