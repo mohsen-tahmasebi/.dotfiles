@@ -1,0 +1,10 @@
+theme = catppuccin-mocha
+
+gtk-titlebar = false
+window-decoration = false
+shell-integration = zsh
+window-padding-x = 15
+window-padding-y = 10
+
+
+window-save-state = always
