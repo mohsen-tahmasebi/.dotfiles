@@ -1,6 +1,6 @@
 theme = catppuccin-mocha
 
-gtk-titlebar = false
+# gtk-titlebar = false
 window-decoration = false
 shell-integration = zsh
 window-padding-x = 15
@@ -8,3 +8,8 @@ window-padding-y = 10
 
 
 window-save-state = always
+confirm-close-surface = false
+
+
+# keybind = f11=toggle_fullscreen
+
