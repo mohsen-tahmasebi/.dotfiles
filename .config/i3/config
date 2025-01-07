@@ -172,7 +172,7 @@ bindsym $mod+Control+e exec "i3-nagbar -t warning -m 'You pressed the exit short
 
 
 # set keyboard layout
-exec_always "setxkbmap -model pc104 -layout us,ir -variant , win_keys, -option grp:win_space_toggle"
+exec_always "setxkbmap -model pc104 -layout us,ir -variant ,win_keys, -option grp:win_space_toggle"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
