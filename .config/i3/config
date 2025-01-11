@@ -57,13 +57,15 @@ floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+# tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec ghostty
 
 # browser
 bindsym $mod+w exec zen-browser
+# files
+bindsym $mod+e exec nautilus
 
 # kill focused window
 bindsym $mod+q kill
@@ -72,6 +74,7 @@ bindsym $mod+q kill
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 bindcode --release 133 exec rofi -show drun
+bindsym $mod+r exec rofi -show run
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
@@ -101,10 +104,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Contorl+h split h
+bindsym $mod+Control+h split h
 
 # split in vertical orientation
-bindsym $mod+Contorl+v split v
+bindsym $mod+Control+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -172,7 +175,7 @@ bindsym $mod+Control+e exec "i3-nagbar -t warning -m 'You pressed the exit short
 
 
 # set keyboard layout
-exec_always "setxkbmap -model pc104 -layout us,ir -variant ,win_keys, -option grp:win_space_toggle"
+exec_always "setxkbmap -model pc104 -layout us,ir -variant ,, -option grp:win_space_toggle"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -199,7 +202,7 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
+# bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
