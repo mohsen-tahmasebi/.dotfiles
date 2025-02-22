@@ -32,7 +32,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -61,7 +61,6 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec ghostty
-
 # browser
 bindsym $mod+w exec zen-browser
 # files
@@ -104,10 +103,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Control+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
-bindsym $mod+Control+v split v
+bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -175,7 +174,7 @@ bindsym $mod+Control+e exec "i3-nagbar -t warning -m 'You pressed the exit short
 
 
 # set keyboard layout
-exec_always "setxkbmap -model pc104 -layout us,ir -variant ,, -option grp:win_space_toggle"
+exec_always "setxkbmap -model pc104 -layout us,ir -variant ,winkeys -option grp:win_space_toggle"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -207,5 +206,22 @@ mode "resize" {
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    position bottom
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    # status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+    status_command i3status -c ~/.config/i3status.conf
+    font pango:JetBrains Mono 10
+
+
+    colors {
+        statusline #ffffff
+        background #25252590
+        inactive_workspace #32323200 #32323200 #5c5c5c
+
+    }
+
+
 }
+
