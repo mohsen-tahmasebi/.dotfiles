@@ -37,6 +37,8 @@ input * {
     xkb_layout "us, ir"
     xkb_variant ",winkeys"
     xkb_options "grp:win_space_toggle"
+    repeat_delay 250
+    repeat_rate 25
 }
 
 
@@ -218,7 +220,7 @@ mode "resize" {
 }
 
 
-# bindsym $mod+r mode "resize"
+ bindsym $mod+Shift+r mode "resize"
 
 
 # Utilities:

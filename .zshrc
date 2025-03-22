@@ -74,6 +74,8 @@ alias c='clear'
 alias cls="clear"
 alias yeet="paru -Rcs"
 alias cp-node="rsync -av --exclude=node_modules --exclude=target --exclude=.next --exclude=.svelte-kit --exclude=mssql"
+alias dev="bun dev"
+alias install="bun install"
 
 up() {
     docker compose up -d
