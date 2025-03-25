@@ -116,10 +116,30 @@ eval $(thefuck --alias)
 
 function yy() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-    yazi "$@" --cwd-file="$tmp"
+
+    if [ -d "$1" ]; then
+      yazi "$1" --cwd-file="$tmp"
+    else
+      yazi "$(zoxide query $@)" --cwd-file="$tmp"
+    fi
+
     if cwd="$(<"$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
         builtin cd -- "$cwd";
     fi
+
     rm -f -- "$tmp"
+}
+
+function y() {
+  if [ "$@" != "" ]; then
+    if [ -d "$@" ]; then
+      yazi "$@"
+    else
+      yazi "$(zoxide query $@)"
+    fi
+  else
+    yazi
+  fi
+    return $?
 }
 
