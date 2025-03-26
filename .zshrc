@@ -5,6 +5,7 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
 eval "$(/usr/bin/oh-my-posh init zsh --config ~/.config/omp/config.omp.json)"
 
 export EDITOR="nvim"
+export GTK_THEME="Catppuccin-Dark"
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -89,11 +90,10 @@ alias down="docker compose down"
 # export PATH="/opt/homebrew/bin:$PATH"
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# nvm
-[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-source /usr/share/nvm/nvm.sh
-source /usr/share/nvm/bash_completion
-source /usr/share/nvm/install-nvm-exec
+# setup nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
