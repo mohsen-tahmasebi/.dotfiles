@@ -7,7 +7,6 @@ return {
           "css",
           "eruby",
           "html",
-          "javascript",
           "javascriptreact",
           "less",
           "sass",
@@ -27,7 +26,7 @@ return {
           --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
           preferences = {},
           --- @type boolean Defaults to `true`
-          showAbbreviationSuggestions = true,
+          showAbbreviationSuggestions = false,
           --- @type "always" | "never" Defaults to `"always"`
           showExpandedAbbreviation = "always",
           --- @type boolean Defaults to `false`

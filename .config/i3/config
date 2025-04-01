@@ -25,9 +25,9 @@ exec --no-startup-id dex --autostart --environment i3
 
 
 # Configure monitors
-# exec --no-startup-id xrandr \
-#   --output DisplayPort-0 --primary --mode 1920x1080 --rate 100.0 --pos 0x0 \
-#   --output DisplayPort-1 --mode 1920x1080 --rate 75.0 --pos 1920x0 
+exec --no-startup-id xrandr \
+  --output DisplayPort-0 --primary --mode 1920x1080 --rate 100.0 --pos 0x0 \
+  --output DisplayPort-1 --mode 1920x1080 --rate 75.0 --pos 1920x0 
 
 # Set desktop background
 exec --no-startup-id feh --bg-scale ~/wallpapers/mountains.jpg
