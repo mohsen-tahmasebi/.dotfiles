@@ -23,14 +23,13 @@ font pango:Hack 12
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-
 # Configure monitors
 exec --no-startup-id xrandr \
   --output DisplayPort-0 --primary --mode 1920x1080 --rate 100.0 --pos 0x0 \
   --output DisplayPort-1 --mode 1920x1080 --rate 75.0 --pos 1920x0 
 
 # Set desktop background
-exec --no-startup-id feh --bg-scale ~/wallpapers/mountains.jpg
+exec --no-startup-id feh --bg-scale ~/Downloads/archbg.png
 
 # Set keyboard keyrepeat
 exec --no-startup-id xset r rate 250 25
@@ -52,13 +51,19 @@ set $refresh_i3status killall -SIGUSR1 i3status
 set $volume_brightness ~/.config/i3/scripts/volume-brightness.sh
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id $volume_brightness volume_up
-bindsym XF86AudioLowerVolume exec --no-startup-id $volume_brightness volume_down
+# bindsym XF86AudioRaiseVolume exec --no-startup-id $volume_brightness volume_up
+# bindsym XF86AudioLowerVolume exec --no-startup-id $volume_brightness volume_down
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id $volume_brightness brightness_up
-bindsym XF86MonBrightnessDown exec --no-startup-id $volume_brightness brightness_down
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+# bindsym XF86MonBrightnessUp exec --no-startup-id $volume_brightness brightness_up
+# bindsym XF86MonBrightnessDown exec --no-startup-id $volume_brightness brightness_down
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
