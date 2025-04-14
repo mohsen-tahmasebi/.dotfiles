@@ -24,13 +24,13 @@ font pango:Hack 12
 exec --no-startup-id dex --autostart --environment i3
 
 # Configure monitors
-exec --no-startup-id xrandr \
-  --output DisplayPort-0 --primary --mode 1920x1080 --rate 100.0 --pos 0x0 \
-  --output DisplayPort-1 --mode 1920x1080 --rate 75.0 --pos 1920x0 
-  # --output HDMI-A-0 --mode 4096x2160 --rate 60.0 --pos 1080x0
+# exec --no-startup-id xrandr \
+#   --output DisplayPort-0 --primary --mode 1920x1080 --rate 100.0 --pos 0x0 \
+#   --output DisplayPort-1 --mode 1920x1080 --rate 75.0 --pos 1920x0 
+#   --output HDMI-A-0 --mode 4096x2160 --rate 60.0 --pos 1080x0
 
 # Set desktop background
-exec --no-startup-id feh --bg-scale ~/Downloads/river.jpeg
+exec --no-startup-id feh --bg-scale ~/Downloads/arch-bg.png
 
 # Set keyboard keyrepeat
 exec --no-startup-id xset r rate 350 25
@@ -63,11 +63,11 @@ bindsym XF86AudioLowerVolume exec --no-startup-id $volume_brightness volume_down
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+# bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+# bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
-# bindsym XF86MonBrightnessUp exec --no-startup-id $volume_brightness brightness_up
-# bindsym XF86MonBrightnessDown exec --no-startup-id $volume_brightness brightness_down
+bindsym XF86MonBrightnessUp exec --no-startup-id $volume_brightness brightness_up
+bindsym XF86MonBrightnessDown exec --no-startup-id $volume_brightness brightness_down
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
