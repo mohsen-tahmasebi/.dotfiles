@@ -1,4 +1,4 @@
-theme = catppuccin-mocha
+theme = tokyonight-storm
 
 # gtk-titlebar = false
 window-decoration = false
