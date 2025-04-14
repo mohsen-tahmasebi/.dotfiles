@@ -30,7 +30,7 @@ exec --no-startup-id dex --autostart --environment i3
 #   --output HDMI-A-0 --mode 4096x2160 --rate 60.0 --pos 1080x0
 
 # Set desktop background
-exec --no-startup-id feh --bg-scale ~/Downloads/island-night-moon-scenery-digital-art-8k.jpg
+exec --no-startup-id feh --bg-scale ~/wallpapers/island-night-moon-scenery-digital-art-8k.jpg
 
 # Set keyboard keyrepeat
 exec --no-startup-id xset r rate 350 25
