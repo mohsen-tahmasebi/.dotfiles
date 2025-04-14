@@ -5,20 +5,21 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
 eval "$(/usr/bin/oh-my-posh init zsh --config ~/.config/omp/config.omp.json)"
 
 export EDITOR="nvim"
-export GTK_THEME="Catppuccin-Dark"
+export GTK_THEME="Tokyo-Dark-Storm"
 
-# Set the directory we want to store zinit and plugins
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
-# Download Zinit, if it's not there yet
-if [ ! -d "$ZINIT_HOME" ]; then
-   mkdir -p "$(dirname $ZINIT_HOME)"
-   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
 fi
 
-# Source/Load zinit
-source "${ZINIT_HOME}/zinit.zsh"
-
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 # Add in zsh plugins
 zinit ice wait="2" lucid
 zinit light zsh-users/zsh-syntax-highlighting
@@ -39,7 +40,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 # Keybindings
-bindkey -e
+bindkey -v # vim Keybindings!
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 # bindkey '^y' yy
@@ -141,4 +142,5 @@ function y() {
   fi
     return $?
 }
+
 
