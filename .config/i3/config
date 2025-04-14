@@ -30,13 +30,19 @@ exec --no-startup-id dex --autostart --environment i3
 #   --output HDMI-A-0 --mode 4096x2160 --rate 60.0 --pos 1080x0
 
 # Set desktop background
-exec --no-startup-id feh --bg-scale ~/Downloads/arch-bg.png
+exec --no-startup-id feh --bg-scale ~/Downloads/island-night-moon-scenery-digital-art-8k.jpg
 
 # Set keyboard keyrepeat
 exec --no-startup-id xset r rate 350 25
 
 # clipboard manager daemon
 exec --no-startup-id greenclip daemon
+
+# redshift
+exec --no-startup-id redshift
+
+# polkit for authentication prompt
+exec --no-startup-id lxpolkit
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -88,6 +94,8 @@ bindsym $mod+Return exec ghostty
 bindsym $mod+w exec zen-browser
 # files
 bindsym $mod+e exec nemo
+# nekoray
+bindsym $mod+n exec nekoray
 
 # Take a screenshot
 bindsym $mod+Shift+x exec flameshot gui
