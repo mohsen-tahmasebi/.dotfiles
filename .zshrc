@@ -40,7 +40,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 # Keybindings
-bindkey -v # vim Keybindings!
+bindkey -e # emacs Keybindings
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 # bindkey '^y' yy
@@ -77,6 +77,11 @@ alias yeet="paru -Rcs"
 alias cp-node="rsync -av --exclude=node_modules --exclude=target --exclude=.next --exclude=.svelte-kit --exclude=mssql"
 alias dev="bun dev"
 alias install="bun install"
+alias open="xdg-open"
+
+cdm() {
+  mkdir $@ && cd $@
+}
 
 up() {
     docker compose up -d
@@ -84,6 +89,7 @@ up() {
         ./run.sh >> /dev/null
     fi
 }
+
 
 alias down="docker compose down"
 
@@ -98,6 +104,10 @@ export NVM_DIR="$HOME/.nvm"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+# Change opener to handlr
+export PATH="$HOME/.local/bin:$PATH"
 
 ## bun completions
 # [ -s "/home/motb/.bun/_bun" ] && source "/home/motb/.bun/_bun"
@@ -143,4 +153,12 @@ function y() {
     return $?
 }
 
+
+
+export PATH=$PATH:/home/motb/.spicetify
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/motb/.dart-cli-completion/zsh-config.zsh ]] && . /home/motb/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
 

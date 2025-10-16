@@ -1,4 +1,4 @@
-theme = tokyonight-storm
+theme = TokyoNight Storm
 
 # gtk-titlebar = false
 window-decoration = false

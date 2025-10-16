@@ -36,3 +36,10 @@ autocmd("Filetype", {
   group = "mygroup",
   desc = "Don't continue comments with o and O",
 })
+
+-- autocmd("BufLeave", {
+--   callback = function()
+--     vim.cmd("silent! wa")
+--     vim.notify("💾 All buffers saved", vim.log.levels.INFO, { title = "AutoSave" })
+--   end,
+-- })
