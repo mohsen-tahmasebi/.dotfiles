@@ -1,0 +1,29 @@
+[Added Associations]
+application/x-extension-htm=zen.desktop;
+application/x-extension-html=zen.desktop;
+application/x-extension-shtml=zen.desktop;
+application/x-extension-xht=zen.desktop;
+application/x-extension-xhtml=zen.desktop;
+application/xhtml+xml=zen.desktop;
+text/html=zen.desktop;
+x-scheme-handler/chrome=zen.desktop;
+x-scheme-handler/http=zen.desktop;
+x-scheme-handler/https=zen.desktop;
+[Default Applications]
+application/x-bittorrent=freedownloadmanager_torrent.desktop;
+application/x-extension-htm=zen.desktop;
+application/x-extension-html=zen.desktop;
+application/x-extension-shtml=zen.desktop;
+application/x-extension-xht=zen.desktop;
+application/x-extension-xhtml=zen.desktop;
+application/xhtml+xml=zen.desktop;
+audio/*=vlc.desktop;
+audio/mpeg=vlc.desktop;
+image/*=viewnior.desktop;
+inode/directory=nemo.desktop;
+text/html=zen.desktop;
+x-scheme-handler/chrome=zen.desktop;
+x-scheme-handler/fdm=freedownloadmanager_fdm_up.desktop;
+x-scheme-handler/http=zen.desktop;
+x-scheme-handler/https=zen.desktop;
+x-scheme-handler/magnet=freedownloadmanager_magnet_up.desktop;
