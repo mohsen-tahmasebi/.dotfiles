@@ -21,6 +21,7 @@ audio/*=vlc.desktop;
 audio/mpeg=vlc.desktop;
 image/*=viewnior.desktop;
 inode/directory=nemo.desktop;
+text/*=vscode.desktop;
 text/html=zen.desktop;
 x-scheme-handler/chrome=zen.desktop;
 x-scheme-handler/fdm=freedownloadmanager_fdm_up.desktop;
