@@ -19,19 +19,19 @@ set $term ghostty
 set $menu rofi -show
 
 ### Output configuration
-#
+
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/wallpapers/island-night-moon-scenery-digital-art-8k.jpg fill
 #
 # Example configuration:
 #
-output DP-1 resolution 1920x1080@100Hz pos 0,0 
-output DP-2 resolution 1920x1080@75Hz pos 1920,0
+output DVI-D-1 resolution 1920x1080@100Hz pos 0,0 
+output HDMI-A-1 resolution 1920x1080@75Hz pos 1920,0
 
 # gaps inner 4
 # gaps outer 6
 
-font pango:monospace 8
+font Hack:monospace 8
 
 input * {
     xkb_layout "us, ir"
@@ -54,6 +54,8 @@ exec swayidle -w \
          timeout 600 'pidof vlc || swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'pidof vlc || swaylock -f -c 000000'
 
+exec clipse -listen
+exec lxqt-policykit-agent
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -80,16 +82,28 @@ exec swayidle -w \
     # Start a terminal
     bindsym $mod+Return exec $term
     # browser
-    bindsym $mod+w exec zen-browser
+    bindsym $mod+w exec floorp
     # files
-    bindsym $mod+e exec thunar
+    bindsym $mod+e exec $term -e yazi
+    # clipboard manager
+    bindsym $mod+Shift+v exec $term --title=clipse -e clipse
+    # system monitor
+    bindsym Ctrl+Shift+Escape exec $term --title=btop -e btop
+
+
+    for_window [title="clipse"] floating enable, move position center
+
+    # volume control
+    bindsym $mod+Ctrl+v exec pavucontrol
+
 
     # Kill focused window
     bindsym $mod+q kill
 
     # Start your launcher
-    bindcode --release 133 exec $menu drun
-    bindsym $mod+r exec $menu run
+    bindsym $mod+r exec ~/.config/rofi/launchers/type-2/launcher.sh
+    # power menu
+    bindsym $mod+m exec ~/.config/rofi/powermenu/type-2/powermenu.sh
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -155,8 +169,8 @@ exec swayidle -w \
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
-   workspace 1 output DP-1
-   workspace 2 output DP-2
+   workspace 1 output DVI-D-1
+   workspace 2 output HDMI-A-1
 
 #
 # Layout stuff:
