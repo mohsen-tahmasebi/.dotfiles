@@ -2,7 +2,7 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
     fastfetch --config examples/13
  fi
 
-eval "$(/usr/bin/oh-my-posh init zsh --config ~/.config/omp/config.omp.json)"
+eval "$(/run/current-system/sw/bin/oh-my-posh init zsh --config ~/.config/omp/config.omp.json)"
 
 export EDITOR="nvim"
 export GTK_THEME="Tokyo-Dark-Storm"
@@ -40,9 +40,9 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 # Keybindings
-bindkey -e # emacs Keybindings
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
+bindkey -v 
+# bindkey '^p' history-search-backward
+# bindkey '^n' history-search-forward
 # bindkey '^y' yy
 
 # History
@@ -115,7 +115,6 @@ export PATH="$HOME/.local/bin:$PATH"
 # Shell integrations
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
-eval $(thefuck --alias)
 
 # start in tmux
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
