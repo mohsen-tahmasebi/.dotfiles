@@ -25,8 +25,8 @@ exec --no-startup-id dex --autostart --environment i3
 
 # Configure monitors
 exec --no-startup-id xrandr \
-  --output DisplayPort-0 --primary --mode 1920x1080 --rate 100.0 --pos 0x0 \
-  --output DisplayPort-1 --mode 1920x1080 --rate 75.0 --pos 1920x0 
+  --output HDMI-1 --primary --mode 1920x1080 --rate 100.0 --pos 1920x0 \
+  --output DVI-D-1 --mode 1920x1080 --rate 75.0 --pos 0x0 
 #   --output HDMI-A-0 --mode 4096x2160 --rate 60.0 --pos 1080x0
 
 # Set desktop background
@@ -91,7 +91,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec ghostty
 # browser
-bindsym $mod+w exec zen-browser
+bindsym $mod+w exec floorp
 # files
 bindsym $mod+e exec nemo
 # nekoray
