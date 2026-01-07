@@ -1,5 +1,7 @@
-[plugin]
-deps = []
+[[plugin.deps]]
+use = "boydaihungst/gvfs"
+rev = "9046dd8"
+hash = "3d31be8146da9555d48b1a731bf195dd"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
