@@ -21,7 +21,7 @@ set $menu rofi -show
 ### Output configuration
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/wallpapers/island-night-moon-scenery-digital-art-8k.jpg fill
+output * bg ~/wallpapers/snowy-mountain-night-scenery-4k-wallpaper-uhdpaper.com-313@5@o.jpg fill
 #
 # Example configuration:
 #

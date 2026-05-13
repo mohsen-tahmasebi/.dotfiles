@@ -13,5 +13,9 @@ window-save-state = always
 confirm-close-surface = false
 
 
+background-image = "~/wallpapers/snowy-mountain-night-scenery-4k-wallpaper-uhdpaper.com-313@5@o.jpg"
+background-image-opacity = 0.1
+background-image-fit = cover
+
 # keybind = f11=toggle_fullscreen
 
