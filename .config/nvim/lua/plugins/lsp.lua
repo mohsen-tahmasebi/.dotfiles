@@ -1,0 +1,27 @@
+-- ~/.config/nvim/lua/plugins/lsp.lua
+return {}
+-- return {
+--   {
+--     "neovim/nvim-lspconfig",
+--     opts = {
+--       servers = {
+--         rust_analyzer = {
+--           -- Tell Neovim exactly where to find rust-analyzer
+--           cmd = {
+--             vim.fn.expand("/usr/lib/rustup/bin/rust-analyzer"),
+--           },
+--           settings = {
+--             ["rust-analyzer"] = {
+--               cargo = {
+--                 allFeatures = true,
+--               },
+--               checkOnSave = {
+--                 command = "clippy",
+--               },
+--             },
+--           },
+--         },
+--       },
+--     },
+--   },
+-- }

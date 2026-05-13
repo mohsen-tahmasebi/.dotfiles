@@ -9,7 +9,11 @@
 
 /*****----- Configuration -----*****/
 configuration {
-    show-icons:                 false;
+    show-icons:                 true;
+ element-icon {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 /*****----- Global Properties -----*****/

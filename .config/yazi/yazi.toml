@@ -5,3 +5,5 @@ edit = [
 play = [
 	{ run = 'vlc "$@"', orphan = true, for = "unix" },
 ]
+
+

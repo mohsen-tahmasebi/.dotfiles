@@ -20,6 +20,15 @@ local usercmd = vim.api.nvim_create_user_command
 -- Prefer creating groups and assigning autocmds to groups, because it makes it easier to clear them
 --[[ Mygroup Group ]]
 
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client.name == "vtsls" then
+      client.server_capabilities.semanticTokensProvider = nil
+    end
+  end,
+})
+
 augroup("mygroup", { clear = true })
 
 autocmd("Filetype", {

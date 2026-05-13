@@ -2,7 +2,7 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
     fastfetch --config examples/13
  fi
 
-eval "$(/run/current-system/sw/bin/oh-my-posh init zsh --config ~/.config/omp/config.omp.json)"
+eval "$(/usr/bin/oh-my-posh init zsh --config ~/.config/omp/config.omp.json)"
 
 export EDITOR="nvim"
 export GTK_THEME="Tokyo-Dark-Storm"
@@ -97,13 +97,17 @@ alias down="docker compose down"
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # setup nvm
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+# go
+export PATH="$HOME/go-1.24/bin:$PATH"
 
 
 # Change opener to handlr
@@ -117,9 +121,9 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
 
 # start in tmux
-# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#   tmux attach || exec tmux;
-# fi
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  tmux attach || exec tmux;
+fi
 
 # yazi shell wrapper to change cwd when exiting yazi
 
@@ -129,7 +133,7 @@ function yy() {
     if [ -d "$1" ]; then
       yazi "$1" --cwd-file="$tmp"
     else
-      yazi "$(zoxide query $@)" --cwd-file="$tmp"
+      yazi . --cwd-file="$tmp"
     fi
 
     if cwd="$(<"$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then

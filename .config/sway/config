@@ -27,11 +27,10 @@ output * bg ~/wallpapers/island-night-moon-scenery-digital-art-8k.jpg fill
 #
 output DVI-D-1 resolution 1920x1080@100Hz pos 0,0 
 output HDMI-A-1 resolution 1920x1080@75Hz pos 1920,0
+output 'LG Electronics LG TV 0x01010101' resolution 3840x2160@60Hz pos 1920,0
 
-# gaps inner 4
-# gaps outer 6
 
-font Hack:monospace 8
+
 
 input * {
     xkb_layout "us, ir"
@@ -51,11 +50,21 @@ input * {
 #
 exec swayidle -w \
          timeout 300 'pidof vlc || swaylock -f -c 000000' \
-         timeout 600 'pidof vlc || swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'pidof vlc || swaylock -f -c 000000'
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         timeout 1800 'systemctl suspend' \
+         before-sleep 'swaylock -f -c 000000'
+
+# dont go to sleep if a window is in fullscreen
+for_window [class=".*"] inhibit_idle fullscreen
+for_window [app_id=".*"] inhibit_idle fullscreen
 
 exec clipse -listen
 exec lxqt-policykit-agent
+exec wlsunset -l 32.6 -L 51.6 
+exec waybar
+
+
+
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -92,6 +101,7 @@ exec lxqt-policykit-agent
 
 
     for_window [title="clipse"] floating enable, move position center
+    for_window [title="Windscribe"] floating enable, move position center
 
     # volume control
     bindsym $mod+Ctrl+v exec pavucontrol
@@ -190,7 +200,7 @@ exec lxqt-policykit-agent
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    bindsym $mod+Shift+t floating toggle
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+tab focus mode_toggle
@@ -261,28 +271,71 @@ mode "resize" {
 #
 # Read `man 5 sway-bar` for more information about this section.
 
+        hide_edge_borders smart
+        # Set colours various window states
+        # Syntax: client.<class> <border> <background> <text> [<indicator> [<child_border>]]
+        # The available classes are:
+            # client.focused: The window that has focus.
+            # client.focused_inactive: The most recently focused view within a container which is not focused.
+            # client.placeholder: Ignored (present for i3 compatibility).
+            # client.unfocused: A view that does not have focus.
+            # client.urgent: A view with an urgency hint. Note: Native Wayland windows do not support urgency. Urgency only works for Xwayland windows.
+        #The meaning of each color is:
+            # border: The border around the title bar.
+            # background: The background of the title bar.
+            # text: The text color of the title bar.
+            # indicator: The color used to indicate where a new view will open. In a tiled container, this would paint the right border of the current view if a new view would be opened to the right.
+            # child_border: The border around the view itself.
+        # The default colors are:
+            # class	        border	background	text    indicator	child_border			
+            # background	n/a	    #ffffff     n/a	    n/a	        n/a
+            # focused	    #4c7899	#285577	    #ffffff	#2e9ef4	    #285577
+            # focused_inactive	#333333	#5f676a	#ffffff	#484e50	    #5f676a
+            # unfocused	    #333333	#222222	    #888888	#292d2e	    #222222
+            # urgent	    #2f343a	#900000	    #ffffff	#900000	    #900000
+            # placeholder	#000000	#0c0c0c	    #ffffff	#000000 	#0c0c0c
+        client.focused           #9aa5ce #16161d #c0caf5 #9aa5ce   #9aa5ce
+        client.focused_inactive  #16161d #16161d #c0caf5 #16161d   #16161d
+        client.unfocused         #16161d #16161d #c0caf5 #16161d   #16161d
+
+    # Gaps
+        # gaps inner|outer|horizontal|vertical|top|right|bottom|left <amount>
+        # Sets default amount pixels of inner or outer gap
+        # the inner affects spacing around each view
+        # the outer affects the spacing around each workspace
+        # To reduce or remove outer gaps, outer gaps can be set to a negative value.
+        gaps inner 5
+        gaps outer 2
+        gaps top 1
+        gaps bottom 1
+
+        # Hide gaps when there is only 1 window
+        smart_gaps on
 
 
+font JetBrainsMono Nerd Font 8
 
+assign [class="floorp"] → number 1
+exec floorp &
 
-bar {
-    position bottom
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    # status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-    status_command i3status -c ~/.config/i3status.conf
-    font pango:JetBrains Mono 10
-
-
-    colors {
-        statusline #ffffff
-        background #25252590
-        inactive_workspace #32323200 #32323200 #5c5c5c
-
-    }
-
-
-}
+# bar {
+#     position bottom
+#
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     # status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+#     status_command i3status -c ~/.config/i3status.conf
+#     font pango:JetBrains Mono 10
+#
+#
+#     colors {
+#         statusline #ffffff
+#         background #25252590
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#
+#     }
+#
+#
+# }
 
 include /etc/sway/config.d/*

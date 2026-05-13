@@ -1,7 +1,7 @@
 theme = TokyoNight Night
 
 # gtk-titlebar = false
-window-decoration = false
+# window-decoration = false
 shell-integration = zsh
 window-padding-x = 15
 window-padding-y = 10

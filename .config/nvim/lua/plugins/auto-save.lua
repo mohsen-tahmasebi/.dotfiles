@@ -27,7 +27,6 @@ return {
     -- execution_message = {
     --   enabled = false, -- Set to true to see messages on save
     -- },
-    
 
     -- The condition function determines whether a buffer should be saved.
     -- This default will typically prevent saving for special buffers (like netrw or git-rebase).
