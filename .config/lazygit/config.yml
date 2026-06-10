@@ -23,5 +23,5 @@ authorColors:
   "*": "#b4befe"
 
 os:
-  editPreset: "$EDITOR"
+  editPreset: "nvim"
   edit: "nvim {{filename}}"

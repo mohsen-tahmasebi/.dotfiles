@@ -2,7 +2,7 @@
 Description=ghostmirror timer, auto select archlinux mirror
 
 [Timer]
-OnCalendar=2025-3-24 
+OnCalendar=2026-5-27 
 Persistent=true
 
 [Install]

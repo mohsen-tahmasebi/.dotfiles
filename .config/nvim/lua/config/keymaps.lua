@@ -4,5 +4,7 @@
 
 local map = vim.keymap.set
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
+-- map("n", ";", ":", { desc = "CMD enter command mode" })
+-- map("i", "jk", "<ESC>")
+--
+-- vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })

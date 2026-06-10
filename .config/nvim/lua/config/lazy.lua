@@ -52,22 +52,3 @@ require("lazy").setup({
   },
 })
 
-require("lspconfig").vtsls.setup({
-  settings = {
-    vtsls = {
-      tsserver = {
-        maxTsServerMemory = 8192,
-      },
-    },
-    typescript = {
-      suggest = {
-        completeFunctionCalls = false,
-      },
-    },
-    javascript = {
-      suggest = {
-        completeFunctionCalls = false,
-      },
-    },
-  },
-})

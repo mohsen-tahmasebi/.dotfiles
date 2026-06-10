@@ -121,7 +121,7 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
 
 # start in tmux
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ "$TERM_PROGRAM" == "ghostty" ]] && [ -z "$TMUX" ]; then
   tmux attach || exec tmux;
 fi
 

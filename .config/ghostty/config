@@ -1,7 +1,7 @@
-theme = TokyoNight Night
+theme = TokyoNight Storm
 
-# gtk-titlebar = false
-# window-decoration = false
+gtk-titlebar = false
+window-decoration = false
 shell-integration = zsh
 window-padding-x = 15
 window-padding-y = 10
@@ -13,9 +13,10 @@ window-save-state = always
 confirm-close-surface = false
 
 
-background-image = "~/wallpapers/snowy-mountain-night-scenery-4k-wallpaper-uhdpaper.com-313@5@o.jpg"
-background-image-opacity = 0.1
+background-image = "~/wallpapers/comet-night-stars-forest-mountain-scenery-4k-wallpaper-uhdpaper.com-310@5@o.jpg"
+background-image-opacity = 0.04
 background-image-fit = cover
+background-blur = true
 
 # keybind = f11=toggle_fullscreen
 

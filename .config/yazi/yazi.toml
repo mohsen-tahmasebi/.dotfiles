@@ -6,4 +6,5 @@ play = [
 	{ run = 'vlc "$@"', orphan = true, for = "unix" },
 ]
 
-
+[mgr]
+show_hidden = true

@@ -91,7 +91,7 @@ exec waybar
     # Start a terminal
     bindsym $mod+Return exec $term
     # browser
-    bindsym $mod+w exec floorp
+    bindsym $mod+w exec zen-browser
     # files
     bindsym $mod+e exec $term -e yazi
     # clipboard manager
@@ -102,6 +102,7 @@ exec waybar
 
     for_window [title="clipse"] floating enable, move position center
     for_window [title="Windscribe"] floating enable, move position center
+    # for_window [title="nmtui"] floating enable, move position center
 
     # volume control
     bindsym $mod+Ctrl+v exec pavucontrol
@@ -315,8 +316,8 @@ mode "resize" {
 
 font JetBrainsMono Nerd Font 8
 
-assign [class="floorp"] → number 1
-exec floorp &
+# assign [class="floorp"] → number 1
+# exec floorp &
 
 # bar {
 #     position bottom
