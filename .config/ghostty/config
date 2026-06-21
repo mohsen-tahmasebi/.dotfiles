@@ -20,3 +20,4 @@ background-blur = true
 
 # keybind = f11=toggle_fullscreen
 
+custom-shader = shaders/cursor-trail.glsl

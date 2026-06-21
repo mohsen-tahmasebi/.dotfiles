@@ -78,6 +78,8 @@ alias cp-node="rsync -av --exclude=node_modules --exclude=target --exclude=.next
 alias dev="bun dev"
 alias install="bun install"
 alias open="xdg-open"
+# alias hx="helix"
+# alias nvim="helix"
 
 cdm() {
   mkdir $@ && cd $@

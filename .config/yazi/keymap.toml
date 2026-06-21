@@ -116,4 +116,5 @@ prepend_keymap = [
 
   { on = "!", run = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
   { on = "<C-n>", run = "shell -- dragon-drop -x -i -T %s1" },
+  { on = "<C-g>", run = 'shell -- rofi -theme fullscreen-preview -show filebrowser -filebrowser-command "ya emit reveal" -filebrowser-directory "$(pwd)"', desc = "Grid view" },
 ]

@@ -1,0 +1,21 @@
+[Unit]
+Description=Starts pyprland daemon
+After=graphical-session.target
+Wants=graphical-session.target
+# Optional: wait for other services to start first
+# Wants=hyprpaper.service
+StartLimitIntervalSec=600
+StartLimitBurst=5
+
+[Service]
+Type=simple
+# Optional: only start on specific compositor
+# For Hyprland:
+# ExecStartPre=/bin/sh -c '[ "$XDG_CURRENT_DESKTOP" = "Hyprland" ] || exit 0'
+# For Niri:
+# ExecStartPre=/bin/sh -c '[ "$XDG_CURRENT_DESKTOP" = "niri" ] || exit 0'
+ExecStart=pypr
+Restart=always
+
+[Install]
+WantedBy=graphical-session.target
